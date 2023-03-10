@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/Maeevee/Team-Profile-Generator-by-Kiriakulova#readme",
   "dependencies": {
-    "inquirer": "^9.1.4",
+    "inquirer": "^8.2.5",
     "jest": "^29.5.0"
   }
 }
