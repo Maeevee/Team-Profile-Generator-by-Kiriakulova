@@ -16,7 +16,66 @@ const render = require("./src/page-template.js");
 // Initialize empty array to hold team members
 const team = [];
 
-// Prompt user for information about team manager
+// Prompt user for information about team managerght
+const nameQuestion = {
+type: 'input',
+name: 'name',
+message: "What is the team manager's name?",
+validate: function (input) {
+    if (input.trim() === '') {
+        return 'Please enter a name.';
+        }
+        return true;
+    },
+};
+
+const idQuestion = {
+type: 'input',
+name: 'id',
+message: "What is the team manager's employee ID?",
+validate: function (input) {
+    const idRegex = /^[1-9]\d*$/;
+    if (!idRegex.test(input)) {
+    return 'Please enter a valid employee ID (positive integer).';
+    }
+    return true;
+},
+};
+
+const emailQuestion = {
+type: 'input',
+name: 'email',
+message: "What is the team manager's email address?",
+validate: function (input) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(input)) {
+    return 'Please enter a valid email address.';
+    }
+    return true;
+},
+};
+
+const officeNumberQuestion = {
+type: 'input',
+name: 'officeNumber',
+message: "What is the team manager's office number?",
+validate: function (input) {
+    const officeNumberRegex = /^[1-9]\d*$/;
+    if (!officeNumberRegex.test(input)) {
+    return 'Please enter a valid office number (positive integer).';
+    }
+    return true;
+},
+};
+
+const questions = [
+nameQuestion,
+idQuestion,
+emailQuestion,
+officeNumberQuestion,
+];
+
+inquirer.prompt(questions)
 inquirer.prompt([
 {
     type: 'input',
