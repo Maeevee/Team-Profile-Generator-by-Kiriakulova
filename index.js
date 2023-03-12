@@ -76,3 +76,28 @@ const manager = new Manager(
 team.push(manager);
 addTeamMember();
 });
+
+// Prompt user to add engineer, intern, or finish building team
+function addTeamMember() {
+inquirer.prompt([
+    {
+    type: 'list',
+    name: 'teamMemberType',
+    message: 'What type of team member would you like to add?',
+    choices: ['Engineer', 'Intern', 'Finish building team'],
+    },
+]).then((answer) => {
+    switch (answer.teamMemberType) {
+    case 'Engineer':
+        addEngineer();
+        break;
+    case 'Intern':
+        addIntern();
+        break;
+    default:
+        generateHtml();
+        break;
+    }
+});
+}
+
