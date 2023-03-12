@@ -164,3 +164,66 @@ inquirer.prompt([
 });
 }
 
+// Prompt user for information about intern and add to team array
+function addIntern() {
+inquirer.prompt([
+    {
+    type: 'input',
+    name: 'name',
+    message: "What is the intern's name?",
+    validate: (input) => {
+        if (input.trim().length > 0) {
+            return true;
+        } else {
+            return "Please enter a valid name.";
+        }
+    },
+    },
+    {
+    type: 'input',
+    name: 'id',
+    message: "What is the intern's employee ID?",
+    validate: (input) => {
+        if (/^\d+$/.test(input)) {
+            return true;
+        } else {
+            return "Please enter a valid ID (numeric characters only).";
+        }
+    },
+    },
+    {
+    type: 'input',
+    name: 'email',
+    message: "What is the intern's email address?",
+    validate: (input) => {
+        if (/^\S+@\S+\.\S+$/.test(input)) {
+            return true;
+        } else {
+            return "Please enter a valid email address.";
+        }
+    },
+    },
+    {
+    type: 'input',
+    name: 'school',
+    message: "What is the intern's school?",
+    validate: (input) => {
+        if (input.trim().length > 0) {
+            return true;
+        } else {
+            return "Please enter a valid school name.";
+        }
+    },
+    },
+]).then((answers) => {
+    const intern = new Intern(
+    answers.name,
+    answers.id,
+    answers.email,
+    answers.school
+    );
+    team.push(intern);
+    addTeamMember();
+});
+}
+
