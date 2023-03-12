@@ -101,3 +101,66 @@ inquirer.prompt([
 });
 }
 
+// Prompt user for information about engineer and add to team array
+function addEngineer() {
+inquirer.prompt([
+    {
+    type: 'input',
+    name: 'name',
+    message: "What is the engineer's name?",
+    validate: (input) => {
+        if (input.trim().length > 0) {
+            return true;
+        } else {
+            return "Please enter a valid name.";
+        }
+    },
+    },
+    {
+    type: 'input',
+    name: 'id',
+    message: "What is the engineer's employee ID?",
+    validate: (input) => {
+        if (/^\d+$/.test(input)) {
+            return true;
+        } else {
+            return "Please enter a valid ID (numeric characters only).";
+        }
+    },
+    },
+    {
+    type: 'input',
+    name: 'email',
+    message: "What is the engineer's email address?",
+    validate: (input) => {
+        if (/^\S+@\S+\.\S+$/.test(input)) {
+            return true;
+        } else {
+            return "Please enter a valid email address.";
+        }
+    },
+    },
+    {
+    type: 'input',
+    name: 'github',
+    message: "What is the engineer's GitHub username?",
+    validate: (input) => {
+        if (input.trim().length > 0) {
+            return true;
+        } else {
+            return "Please enter a valid GitHub username.";
+        }
+    },
+    },
+]).then((answers) => {
+    const engineer = new Engineer(
+    answers.name,
+    answers.id,
+    answers.email,
+    answers.github
+    );
+    team.push(engineer);
+    addTeamMember();
+});
+}
+
