@@ -16,7 +16,7 @@ const render = require("./src/page-template.js");
 // Initialize empty array to hold team members
 const team = [];
 
-// Prompt user for information about team managerght
+// Prompt user for information about team manager
 inquirer.prompt([ 
 {
     type: 'input',
@@ -65,4 +65,14 @@ inquirer.prompt([
         return true;
     },
 },
-])
+]).then((answers) => {
+// Create Manager object using provided information and add to team array
+const manager = new Manager(
+    answers.name,
+    answers.id,
+    answers.email,
+    answers.officeNumber
+);
+team.push(manager);
+addTeamMember();
+});
