@@ -227,3 +227,16 @@ inquirer.prompt([
 });
 }
 
+// Generate
+function generateHtml() {
+    const html = render(team);
+
+    fs.writeFile(outputPath, html, (err) => {
+        if (err) {
+            console.error(err);
+        } else {
+            console.log('Team HTML generated successfully!');
+        }
+    });
+};
+
