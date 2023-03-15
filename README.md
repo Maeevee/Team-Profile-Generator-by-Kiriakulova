@@ -33,6 +33,9 @@ Contributions to this project are welcome. If you would like to contribute, plea
 ## Tests
 To run the tests for this application, navigate to the root directory of the project in the command prompt and run the command `npm run test`.
 
+## Credits
+This application was created by [@Maeevee](https://github.com/Maeevee) using [Stack Overflow](https://stackoverflow.com/), [ChatGPT](https://openai.com/blog/chatgpt/) [Bootstrap](https://getbootstrap.com/) and [Font Awesome](https://fontawesome.com/).
+
 ## License
 This project is licensed under the terms of the MIT License.
 
